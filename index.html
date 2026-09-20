@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poppy Playtime | دکتر هارلی</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#070b14;--card:#131c2e;--acc:#00c6ff;--acc2:#00ff88;--txt:#fff}
+body{background:var(--bg);color:var(--txt);font-family:Vazirmatn,Tahoma;line-height:2}
+body.t-green{--bg:#04120c;--card:#0c2417;--acc:#00ff88;--acc2:#00c6ff}
+body.t-red{--bg:#140607;--card:#2a1214;--acc:#ff2a4a;--acc2:#ffb300}
+body.t-purple{--bg:#0e0716;--card:#1d1230;--acc:#b26bff;--acc2:#ff5ad0}
+body.t-gold{--bg:#100c04;--card:#241a0a;--acc:#ffcc33;--acc2:#ff8800}
+.topbar{background:linear-gradient(90deg,var(--acc),var(--acc2));color:#000;text-align:center;font-weight:900;padding:10px}
+#menuBtn{position:fixed;top:60px;right:12px;z-index:50;background:var(--card);border:2px solid var(--acc);color:var(--txt);border-radius:12px;padding:10px 14px;cursor:pointer;font-size:18px}
+#side{position:fixed;top:0;right:-280px;width:260px;height:100%;background:var(--card);border-left:2px solid var(--acc);z-index:60;transition:.3s;padding:18px;overflow-y:auto}
+#side.open{right:0}
+#side a{display:block;color:var(--txt);text-decoration:none;padding:9px;border-radius:8px;border:1px solid #ffffff22;margin:6px 0}
+#side a:hover{background:var(--acc);color:#000}
+#closeBtn{background:#ff2a4a;color:#fff;border:none;width:100%;padding:10px;border-radius:10px;font-weight:900;cursor:pointer;margin-bottom:10px;font-size:16px}
+header{text-align:center;padding:35px 15px}
+.credit{display:inline-block;border:2px solid var(--acc);padding:8px 20px;border-radius:30px;margin:8px}
+.wrap{max-width:1050px;margin:auto;padding:12px}
+h2{color:var(--acc2);border-right:6px solid var(--acc);padding-right:10px;margin:28px 0 10px}
+.card{background:var(--card);border:1px solid #ffffff33;border-radius:14px;padding:14px;margin:8px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.char{background:var(--card);border:1px solid #ffffff33;border-radius:12px;padding:10px;text-align:center}
+.char img{width:100%;height:210px;object-fit:cover;border-radius:10px;background:#000}
+.btn{background:linear-gradient(45deg,var(--acc),var(--acc2));color:#000;border:none;padding:10px 20px;border-radius:30px;font-weight:900;cursor:pointer;margin:4px;display:inline-block;text-decoration:none}
+.btn2{background:#000;color:#fff;border:1px solid var(--acc);padding:9px 16px;border-radius:30px;cursor:pointer;margin:4px}
+input,textarea{width:100%;padding:10px;border-radius:10px;border:1px solid #777;background:#000;color:#fff;margin:5px 0;font-family:inherit}
+#chatBox{height:260px;overflow-y:auto;background:#000;border-radius:10px;padding:10px;border:1px solid var(--acc)}
+.rubika{display:block;text-align:center;background:linear-gradient(45deg,#a02aff,#ff2a9a);color:#fff;text-decoration:none;font-weight:900;padding:16px;border-radius:16px;margin:12px 0}
+.surprise{position:fixed;inset:0;background:#000d;display:none;align-items:center;justify-content:center;z-index:99;text-align:center}
+.opt{display:block;background:#000;border:1px solid var(--acc);border-radius:10px;padding:8px;margin:6px 0;cursor:pointer}
+.opt:hover{background:var(--acc);color:#000}
+#overlay{position:fixed;inset:0;background:#0008;display:none;z-index:55}
+</style>
+</head>
+<body>
+<div class="topbar">ساخته شده توسط کانال دکتر هارلی 💙 @poopy_play_time_harley_sawyer</div>
+<button id="menuBtn" onclick="openMenu()">☰ فهرست</button>
+<div id="overlay" onclick="closeMenu()"></div>
+<nav id="side">
+<button id="closeBtn" onclick="closeMenu()">✖ بستن فهرست</button>
+<b>📋 فهرست سایت</b>
+<a href="#trailer" onclick="closeMenu()">🎬 تریلر چپتر 5</a>
+<a href="#dl" onclick="closeMenu()">⬇️ دانلود چپترها</a>
+<a href="#chars" onclick="closeMenu()">🧸 شخصیت‌ها</a>
+<a href="#chapters" onclick="closeMenu()">📁 چپترها</a>
+<a href="#quiz" onclick="closeMenu()">🎯 آزمون پاپی</a>
+<a href="#ai" onclick="closeMenu()">🤖 هوش مصنوعی</a>
+<a href="#cmt" onclick="closeMenu()">💬 نظرات</a>
+<a href="https://rubika.ir/poopy_play_time_harley_sawyer">📱 کانال روبیکا</a>
+<hr>
+<b>🎨 تم‌ها</b>
+<a href="#" onclick="setT('');return false">💙 آبی کارخانه</a>
+<a href="#" onclick="setT('t-green');return false">💚 سبز سیف‌هیون</a>
+<a href="#" onclick="setT('t-red');return false">❤️ قرمز پروتوتایپ</a>
+<a href="#" onclick="setT('t-purple');return false">💜 بنفش کت‌نپ</a>
+<a href="#" onclick="setT('t-gold');return false">💛 طلایی پاپی</a>
+<button id="closeBtn" style="margin-top:10px" onclick="closeMenu()">✖ بستن</button>
+</nav>
+<header>
+<h1>POPPY PLAYTIME</h1>
+<p>آرشیو کامل فارسی: شخصیت‌ها + چپترها + آزمون + هوش مصنوعی + نظرات</p>
+<div class="credit">ساخته شده توسط کانال دکتر هارلی</div><br>
+<button class="btn" onclick="showS()">🎁 سوپرایز</button>
+<a class="rubika" href="https://rubika.ir/poopy_play_time_harley_sawyer">📱 ورود به کانال @poopy_play_time_harley_sawyer</a>
+</header>
+<div class="wrap">
+<h2 id="trailer">🎬 تریلر چپتر 5</h2>
+<div class="card" style="text-align:center">
+<a class="btn" href="https://www.youtube.com/results?search_query=Poppy+Playtime+Chapter+5+official+trailer">▶ تماشا در یوتیوب</a>
+<a class="btn2" href="https://www.youtube.com/@MOBEntertainment">کانال MOB</a>
+</div>
+<h2 id="dl">⬇️ دانلود چپترها</h2>
+<div class="grid">
+<div class="card"><b>Ch1 تا Ch4</b><br><a class="btn" href="https://store.steampowered.com/app/1721470/Poppy_Playtime/">استیم PC</a></div>
+<div class="card"><b>Ch5</b><br><a class="btn" href="https://store.steampowered.com/app/1721470/Poppy_Playtime/">صفحه رسمی - 18 فوریه 2026</a></div>
+<div class="card"><b>موبایل</b><br><a class="btn2" href="https://play.google.com/store/search?q=poppy%20playtime&c=apps">گوگل‌پلی</a> <a class="btn2" href="https://apps.apple.com/search?term=poppy%20playtime">اپ‌استور</a></div>
+</div>
+<h2 id="chars">🧸 شخصیت‌ها + عکس‌های شما</h2>
+<div class="grid">
+<div class="char"><img src="Huggy.jpg"><h3>هاگی واگی 1170</h3><p>نماد آبی 1984. نگهبان ورودی. در چپتر 1 سقوط می‌کند ولی زنده می‌ماند. باهوش، قوی و گوشت‌خوار. قربانی Bigger Bodies که حالا شکارچی است.</p></div>
+<div class="char"><img src="Harley.jpg"><h3>دکتر هارلی سایر 1354</h3><p>مبتکر Bigger Bodies. تبدیل یتیم‌ها به اسباب‌بازی. خودش هم قربانی پروژه‌اش شد و مغزش در سیستم کارخانه زنده ماند. باس چپتر 4 و صدای پشت تلفن‌ها.</p></div>
+<div class="char"><img src="Harley1.jpg"><h3>هارلی سایر - فایل دوم</h3><p>همکار الیوت لودویگ. نظریه بقای آگاهی در عروسک را عملی کرد. بعد از Hour of Joy همه دوربین‌ها و Yarnaby را کنترل می‌کند.</p></div>
+<div class="char"><img src="Prototype.jpg"><h3>پروتوتایپ 1006</h3><p>اولین و خطرناک‌ترین. دست مکانیکی. رهبر Hour of Joy 1995. کت‌نپ او را می‌پرستد. احتمالا Ollie همان اوست. گرداننده پشت پرده چپتر 5.</p></div>
+<div class="char"><img src="Doy.jpg"><h3>دویی 1322</h3><p>ترکیب سه بچه: متیو، کوین، جک. بدن خمیری تغییرشکل‌دهنده. دوست Safe Haven که آخر چپتر 4 وحشی می‌شود.</p></div>
+<div class="char"><img src="Lily.jpg"><h3>پاپی / لی‌لی</h3><p>عروسک انقلابی با voice box. دختر الیوت. حس درست و غلط دارد ولی برای انتقام از بازیکن استفاده می‌کند. آخر چپتر 4 می‌خواهد کارخانه را منفجر کند.</p></div>
+</div>
+<h2 id="chapters">📁 چپترها</h2>
+<div class="card"><b>Ch1 A Tight Squeeze (2021):</b> بازگشت کارمند سابق، GrabPack، نوارهای VHS، آزادی پاپی، حمله هاگی.</div>
+<div class="card"><b>Ch2 Fly in a Web (2022):</b> گیم‌استیشن، مامان لانگ لگز 1222، سه بازی مرگبار، مرگ مامان و دست پروتوتایپ.</div>
+<div class="card"><b>Ch3 Deep Sleep (2024):</b> پلی‌کر، کت‌نپ 1188 همان تئودور، دود قرمز، داگ‌دی، پرستش پروتوتایپ.</div>
+<div class="card"><b>Ch4 Safe Haven (2025):</b> زندان زیر کارخانه، دویی، یارنابی 1166، دکتر، انفجار سیف‌هیون و خیانت پاپی.</div>
+<div class="card"><b>Ch5 Broken Things (2026):</b> قلمرو پروتوتایپ، راز دکتر و اعماق کارخانه. انتشار 18 فوریه 2026.</div>
+<h2 id="quiz">🎯 آزمون پاپی پلی‌تایم</h2>
+<div class="card"><div id="qBox"></div><div id="qOpts"></div><p id="qRes"></p><button class="btn" onclick="nextQ()">سوال بعدی</button><p>امتیاز: <span id="score">0</span></p></div>
+<h2 id="ai">🤖 هوش مصنوعی رایگان</h2>
+<div class="card"><div id="chatBox"><div>سلام! درباره هاگی، پاپی، مامان، کت‌نپ، پروتوتایپ، هارلی، دویی، چپترها، دانلود و کانال بپرس 🤖</div></div><input id="chatIn" placeholder="بنویس..."><button class="btn" onclick="askAI()">ارسال</button></div>
+<h2 id="cmt">💬 نظرات</h2>
+<div class="card"><input id="cName" placeholder="اسمت"><textarea id="cText" placeholder="نظرت..."></textarea><button class="btn" onclick="addC()">ثبت نظر</button><div id="cList"></div></div>
+<a class="rubika" href="https://rubika.ir/poopy_play_time_harley_sawyer">ساخته شده توسط کانال دکتر هارلی 🚀 بزن برو تو کانال</a>
+</div>
+<div class="surprise" id="surp"><div><div style="font-size:90px">🧸🎉👁️</div><h2>سوپرایز!</h2><p>تو فن واقعی هستی! کد مخفی: HARLEY-1006<br>آن را در کانال بفرست!</p><button class="btn" onclick="document.getElementById('surp').style.display='none'">باشه!</button></div></div>
+<script>
+function setT(t){document.body.className=t;localStorage.setItem('ppt_t',t)}
+setT(localStorage.getItem('ppt_t')||'');
+function openMenu(){document.getElementById('side').classList.add('open');document.getElementById('overlay').style.display='block'}
+function closeMenu(){document.getElementById('side').classList.remove('open');document.getElementById('overlay').style.display='none'}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu()});
+function showS(){document.getElementById('surp').style.display='flex'}
+var QS=[{q:'هاگی واگی چه شماره آزمایشی است؟',o:['1170','1222','1188','1006'],c:0},{q:'مامان لانگ لگز کیست؟',o:['1222','1170','1322','1354'],c:0},{q:'کت‌نپ نام انسانی‌اش چیست؟',o:['تئودور گرمبل','هارلی سایر','الیوت لودویگ','متیو'],c:0},{q:'پروتوتایپ چه شماره‌ای است؟',o:['1006','1170','1188','1166'],c:0},{q:'دویی از ترکیب چند بچه ساخته شد؟',o:['3','2','5','1'],c:0},{q:'یارنابی چه شماره‌ای است؟',o:['1166','1170','1222','1322'],c:0},{q:'دکتر هارلی سایر مبتکر چیست؟',o:['Bigger Bodies','GrabPack','Smiling Critters','Game Station'],c:0},{q:'Hour of Joy در چه سالی بود؟',o:['1995','1984','2021','2026'],c:0},{q:'چپتر 5 چه نام دارد؟',o:['Broken Things','Deep Sleep','Safe Haven','Fly in a Web'],c:0},{q:'هاگی در چه سالی ساخته شد؟',o:['1984','1995','2022','2024'],c:0}];
+var qi=0,sc=0;
+function nextQ(){var b=document.getElementById('qBox'),o=document.getElementById('qOpts');document.getElementById('qRes').innerText='';var Q=QS[qi%QS.length];b.innerHTML='<b>سوال '+(qi+1)+': '+Q.q+'</b>';o.innerHTML='';Q.o.forEach(function(t,i){var d=document.createElement('div');d.className='opt';d.innerText=t;d.onclick=function(){if(i===Q.c){sc++;document.getElementById('qRes').innerText='✅ آفرین درست گفتی!';}else{document.getElementById('qRes').innerText='❌ اشتباه! جواب درست: '+Q.o[Q.c];}document.getElementById('score').innerText=sc;qi++;setTimeout(nextQ,1200);};o.appendChild(d);});}
+nextQ();
+var KB=[{k:['هاگی','huggy'],a:'🧸 هاگی 1170، آبی 1984، نخستین تهدید چپتر1، زنده ماند و برگشت.'},{k:['پاپی','poppy','لیلی'],a:'🪆 پاپی برای انتقام از بازیکن استفاده می‌کند و آخر چپتر4 می‌خواهد کارخانه را منفجر کند.'},{k:['مامان','مامی'],a:'🕷️ مامان 1222، آخر چپتر2 پروتوتایپ او را کشت.'},{k:['کت','catnap'],a:'😼 کت‌نپ 1188 همان تئودور، دود قرمز دارد.'},{k:['پروتوتایپ'],a:'🖐️ پروتوتایپ 1006 رهبر Hour of Joy 1995.'},{k:['هارلی','سایر','دکتر'],a:'🧪 هارلی سایر مبتکر Bigger Bodies، آزمایش 1354، باس چپتر4.'},{k:['دویی'],a:'🟤 دویی 1322 ترکیب 3 بچه.'},{k:['یارنابی'],a:'🦁 یارنابی 1166 شکارچی وفادار دکتر.'},{k:['چپتر 5','تریلر'],a:'🎬 چپتر5 Broken Things، 18 فوریه 2026.'},{k:['دانلود'],a:'⬇️ استیم برای PC، گوگل‌پلی و اپ‌استور برای موبایل.'},{k:['کانال','روبیکا'],a:'📱 کانال: @poopy_play_time_harley_sawyer'},{k:['سلام'],a:'سلام رفیق! بپرس 😊'}];
+function askAI(){var inp=document.getElementById('chatIn');var q=inp.value.trim();if(!q)return;var box=document.getElementById('chatBox');box.innerHTML+='<div>🧑 '+q+'</div>';var ql=q.toLowerCase(),ans='🤔 نفهمیدم! بپرس: هاگی، پاپی، مامان، کت‌نپ، پروتوتایپ، هارلی، دویی، چپتر5، دانلود.';for(var i=0;i<KB.length;i++){for(var j=0;j<KB[i].k.length;j++){if(ql.indexOf(KB[i].k[j].toLowerCase())>=0){ans=KB[i].a;break;}}if(ans[0]!=='🤔')break;}box.innerHTML+='<div style="border:1px solid #0f8;border-radius:8px;padding:6px;margin:5px 0">'+ans+'</div>';inp.value='';box.scrollTop=box.scrollHeight;}
+function loadC(){try{var a=JSON.parse(localStorage.getItem('h_c')||'[]');var h='';for(var i=a.length-1;i>=0;i--)h+='<div><b>'+a[i].n+'</b><br>'+a[i].t+'<hr></div>';document.getElementById('cList').innerHTML=h||'هنوز نظری نیست!';}catch(e){}}
+function addC(){var n=document.getElementById('cName').value||'مهمان';var t=document.getElementById('cText').value.trim();if(!t){alert('بنویس!');return;}var a=[];try{a=JSON.parse(localStorage.getItem('h_c')||'[]');}catch(e){}a.push({n:n,t:t});localStorage.setItem('h_c',JSON.stringify(a));document.getElementById('cText').value='';loadC();}
+loadC();
+</script>
+</body>
+</html>� موجودات عجیب و تاریک است که در محیط‌های مخفی کارخانه یافت می‌شود."},
+    {name:"مامان لانگ‌لگز | Mommy Long Legs",img:"https://static.wikia.nocookie.net/poppy-playtime/images/0/00/Mommy_Long_Legs.png",danger:"خطر 4/5",text:"یک هیولای عنکبوتی صورتی رنگ است که بسیار سریع و چابک است."},
+    {name:"لیلی | Leila",img:"https://via.placeholder.com/300x250?text=Leila",danger:"خطر 3/5",text:"لیلی دختری با موهای ارغوانی و ستاره‌ی کانال دکتر هارلی است."}
+];
+
+const chaps=[
+{t:"Chapter 1: A Tight Squeeze",meta:"Release: Oct 2021 | Size: 2GB",d:"شروع داستان در کارخانه و مواجهه با هاگی واگی."},
+{t:"Chapter 2: Fly in a Web",meta:"Release: May 2022 | Size: 6GB",d:"مواجهه با مامان لانگ‌لگز در محیط‌های صنعتی."},
+{t:"Chapter 3: Deep Sleep",meta:"Release: Jan 2024 | Size: 11GB",d:"داستان در یتیم‌خانه و مقابله با کات‌نپ."},
+{t:"Chapter 4: Safe Haven",meta:"Release: Jan 2025 | Size: 15GB",d:"اوج داستان و فاش شدن رازهای دکتر هارلی."},
+{t:"Chapter 5: The Unknown",meta:"Status: LEAKED",d:"شایعات مربوط به کنترل کامل پروتوتایپ."}
+];
+
+function render(){
+    document.getElementById('chars-grid').innerHTML=chars.map(c=>`<div class="card"><img src="${c.img}" onerror="this.src='https://via.placeholder.com/300x250?text=No+Image'"><div class="in"><span class="tag">${c.danger}</span><h3>${c.name}</h3><p>${c.text}</p></div></div>`).join('');
+    document.getElementById('chaps-container').innerHTML=chaps.map(c=>`<div class="chapter-detail"><span class="chapter-meta">${c.meta}</span><h3>${c.t}</h3><p>${c.d}</p></div>`).join('');
+}
+render();
+
+function ask(){
+    var i=document.getElementById('in');
+    var t=i.value.trim();
+    if(!t) return;
+    addMsg(t,'mu');
+    i.value='';
+    const box = document.getElementById('box');
+    const loading = document.createElement('div');
+    loading.className = 'ma thinking';
+    loading.textContent = "در حال تحلیل آرشیو و پردازش داده‌ها...";
+    box.appendChild(loading);
+    box.scrollTop = box.scrollHeight;
+    box.classList.add('shake');
+    setTimeout(() => box.classList.remove('shake'), 500);
+
+    setTimeout(function(){
+        loading.remove();
+        let res = "اطلاعات مورد نظر در این سطح از دسترسی یافت نشد. از کلمات کلیدی استفاده کنید.";
+        for(let key in aiKnowledge){ if(t.includes(key)){ res = aiKnowledge[key]; break; }
+        }
+        if(t.includes('1006')){ secret(); res = "⚠️ پروتوتایپ بیدار شد! فرار کن! ⚠️"; }
+        addMsg(res,'ma');
+    }, 1500);
+}
+
+function addMsg(txt,who){var b=document.getElementById('box');var d=document.createElement('div');d.className=who;d.textContent=txt;b.appendChild(d);b.scrollTop=b.scrollHeight}
+
+function addComment(){
+    const name = document.getElementById('cName').value;
+    const text = document.getElementById('cText').value;
+    const list = document.getElementById('commentList');
+    if(name && text){
+        const div = document.createElement('div');
+        div.className = 'comment-item';
+        div.innerHTML = `<span class="comment-user">${name}</span><span class="comment-text">${text}</span>`;
+        list.appendChild(div);
+        document.getElementById('cName').value = '';
+        document.getElementById('cText').value = '';
+        list.scrollTop = list.scrollHeight;
+    }
+}
+
+function secret(){document.getElementById('jumpscare').classList.add('show')}
+</script>
+</body>
+</html>
+�ی پلی‌تایم':'Poppy Playtime World';render();}
+</script>
+</body>
+</html>
